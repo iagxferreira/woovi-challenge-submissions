@@ -1,0 +1,34 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "tsc && node --env-file=.env dist/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.8.1",
+	"dependencies": {
+		"graphql": "^16.10.0",
+		"graphql-playground-middleware": "^1.1.2",
+		"koa": "^2.16.1",
+		"koa-bodyparser": "^4.4.1",
+		"koa-convert": "^2.0.0",
+		"koa-cors": "^0.0.16",
+		"koa-graphql": "^0.12.0",
+		"koa-router": "^13.0.1",
+		"mongoose": "^8.13.2"
+	},
+	"devDependencies": {
+		"@types/koa": "^2.15.0",
+		"@types/koa-bodyparser": "^4.3.12",
+		"@types/koa-convert": "^1.2.7",
+		"@types/koa-cors": "^0.0.6",
+		"@types/koa-graphql": "^0.12.0",
+		"@types/koa-router": "^7.4.8",
+		"@types/node": "^22.14.1"
+	}
+}
