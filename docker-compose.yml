@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: server
+    networks:
+      - app-network
+    ports:
+      - "3002:3000"
+    depends_on:
+      - database
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://myuser:mypassword@database:27017/mydb?authSource=admin
+
+  database:
+    image: mongo:8
+    container_name: database
+    restart: always
+    networks:
+      - app-network
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: myuser
+      MONGO_INITDB_ROOT_PASSWORD: mypassword
+      MONGO_INITDB_DATABASE: mydb
+    volumes:
+      - mongo-data:/data/db
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
