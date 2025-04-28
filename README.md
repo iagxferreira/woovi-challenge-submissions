@@ -7,8 +7,8 @@ Repositório relacionado a soluções dos desafios técnicos propostos pela Woov
 - `ledger` - solução para o desafio de criação de CRUD ledger
 ### Fontes
 
-woovi/jobs: https://github.com/woovibr/jobs
-entria/jobs: https://github.com/entria/jobs
+- woovi/jobs: https://github.com/woovibr/jobs
+- entria/jobs: https://github.com/entria/jobs
 
 ## Propostas de solução:
 
