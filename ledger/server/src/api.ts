@@ -6,7 +6,7 @@ import cors from "koa-cors";
 import { koaPlayground } from "graphql-playground-middleware";
 import { graphqlHTTP } from "koa-graphql";
 import { config } from "./config";
-import schema from "./schema";
+import schema from "./protocols/graphql/schema";
 
 const app = new Koa();
 const router = new Router();
@@ -20,7 +20,6 @@ router.get("/", (ctx) => {
     "/playground - GraphQL Playground",
     "/status - Status server",
   ];
-
   ctx.status = 200;
   ctx.body = info.join("\n");
 });
