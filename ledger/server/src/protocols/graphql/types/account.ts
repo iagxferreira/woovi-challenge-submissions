@@ -1,7 +1,7 @@
 
 import { GraphQLObjectType, GraphQLString, GraphQLFloat, GraphQLBoolean, GraphQLNonNull } from 'graphql';
 
-const AccountType = new GraphQLObjectType({
+export const AccountType = new GraphQLObjectType({
   name: 'Account',
   fields: () => ({
     id: {
@@ -38,5 +38,3 @@ const AccountType = new GraphQLObjectType({
     },
   }),
 });
-
-export default AccountType;

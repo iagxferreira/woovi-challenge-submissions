@@ -3,7 +3,7 @@ GraphQLNonNull,
 	GraphQLObjectType,
 } from "graphql";
 import {CreateAccountInputType, CreateAccountPayloadType} from "./account";
-import CreateAccountUseCase from "../use-cases/create-account";
+import CreateAccountUseCase from "../../../use-cases/create-account";
 
 export const mutation = new GraphQLObjectType({
 	name: "Mutation",

@@ -6,13 +6,14 @@ import {
 	GraphQLString,
 } from "graphql";
 
-import { GraphQLContext, UserType } from "../types";
-import AccountType from "../types/account";
-import Account from "../models/account";
+import { AccountType } from "../types";
+import Account from "../../../infra/mongodb/models/account";
+import {Context} from "koa";
+import {auth} from "../middleware/auth";
 
 export const query = new GraphQLObjectType<
 	Record<string, unknown>,
-	GraphQLContext
+	Context
 >({
 	name: "Query",
 	fields: () => ({
@@ -44,5 +45,19 @@ export const query = new GraphQLObjectType<
 				return Account.findOne({accountNumber: args.accountNumber});
 			},
 		},
+		accountById: {
+			type: AccountType,
+			args: {
+				id: {
+					type: new GraphQLNonNull(GraphQLID),
+				},
+			},
+			resolve: async (_, args, ctx ) => {
+				await auth(ctx.koaContext, async () => {
+					console.log(ctx.id)
+					return
+				})
+			},
+		}
 	}),
 });

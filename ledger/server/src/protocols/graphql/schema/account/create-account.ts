@@ -3,11 +3,10 @@ import {
   GraphQLInputObjectType,
   GraphQLObjectType,
   GraphQLString,
-  GraphQLFloat,
   GraphQLNonNull,
   GraphQLBoolean, GraphQLInt,
 } from "graphql";
-import AccountType from "../../types/account";
+import {AccountType} from "../../types";
 
 export const CreateAccountInputType = new GraphQLInputObjectType({
   name: "CreateAccountInput",
