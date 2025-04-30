@@ -1,10 +1,11 @@
 import mongoose, { Document, Schema } from 'mongoose';
+import {IUser} from "./user";
 
 export interface IAccount extends Document {
   accountNumber: string;
   accountType: 'SAVINGS' | 'CHECKING';
   balance: number;
-  owner: string;
+  owner: IUser["_id"];
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
@@ -27,14 +28,16 @@ const AccountSchema = new Schema<IAccount>({
     default: 0,
     min: 0,
   },
-  owner: {
-    type: String,
-    required: true,
-  },
   isActive: {
     type: Boolean,
     default: true,
-  }
+  },
+  // In your Account model, update the owner field:
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 }, {
   timestamps: true,
 });
