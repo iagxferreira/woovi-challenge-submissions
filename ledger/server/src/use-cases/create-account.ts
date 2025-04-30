@@ -1,5 +1,5 @@
-import AccountSchema, {IAccount} from "../models/account";
-import Account from "../models/account";
+import AccountSchema, {IAccount} from "../infra/mongodb/models/account";
+import Account from "../infra/mongodb/models/account";
 
 
 class CreateAccountUseCase {
